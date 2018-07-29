@@ -1,0 +1,52 @@
+<html ng-app="myApp">
+<header>
+  <title>AngularJs in Action Documentation</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="./dist/index.js"></script>
+</header>
+<body ng-controller="restController">
+  <h2 class="text-center"> Documentation of $http and Promises</h2>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <!-- calling rest using $http -->
+      <document-section data-title="Calling REST using $http">
+        <div ng-repeat="d in data.users">
+          {{d.name}} - {{d.age}}
+        </div>
+      </document-section>
+
+      <!-- Handling promise -->
+      <document-section data-title="Handling Promise">
+        {{process}}<br>
+        <div ng-repeat="d in data.users">
+          {{d.name}} - {{d.age}}
+        </div>
+      </document-section>
+
+      <!-- refactor from controller to service-->
+      <document-section data-title="Receiving data from Service calling REST API">
+        <div ng-repeat="d in dataFromService.users">
+          {{d.name}} - {{d.age}}
+        </div>
+      </document-section>
+
+      <!-- sending parameters on thr GET call -->
+      <document-section data-title="Calling REST API with parameters">
+        {{singleUser.user.id}} - {{singleUser.user.name}} - {{singleUser.user.age}}
+      </document-section>
+
+      <!-- $q success promise -->
+      <document-section data-title="Returning Success Promise using $q">
+        Async call executed: {{asynCallExecutedSuccess}}
+      </document-section>
+
+      <!-- $q error promise -->
+      <document-section data-title="Returning Error Promise using $q">
+        Async call executed: {{asynCallExecutedError}}
+      </document-section>
+
+    </div>
+  </div>
+</body>
+</html>
